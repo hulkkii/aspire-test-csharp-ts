@@ -1,0 +1,9 @@
+.vs/
+_ReSharper.Caches/
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+*.user
+*.suo
+
