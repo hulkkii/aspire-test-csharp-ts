@@ -1,6 +1,6 @@
 # Aspire React template
 
-This template combines an ASP.NET Core API, a React frontend, and an Aspire AppHost.
+This template combines an ASP.NET Core API, a React frontend, and an Aspire AppHost. The frontend uses Vite, Tailwind CSS 4, shadcn/ui, TanStack Router, and TanStack Query.
 
 During development, Aspire runs the API and the Vite frontend as separate resources. During publish, ASP.NET Core hosts the compiled React files from `wwwroot`, so the deployed application has one public endpoint.
 
@@ -12,6 +12,12 @@ During development, Aspire runs the API and the Vite frontend as separate resour
 
 ## Run the application
 
+Install the frontend dependencies from `frontend`:
+
+```powershell
+npm ci
+```
+
 Start the AppHost from the repository root:
 
 ```powershell
@@ -22,6 +28,42 @@ The Aspire dashboard shows these application resources:
 
 - `server` runs the ASP.NET Core API.
 - `webfrontend` runs the Vite development server and proxies `/api` requests to `server`.
+
+Open the `webfrontend` endpoint shown by Aspire. The Workroom demo has a project list, URL-based filters, and project details. Changing a project's status exercises an API mutation and the Query cache. Demo data lives in memory and resets when the API restarts. The existing weather API remains available.
+
+## Change the frontend
+
+Run these commands from `frontend`:
+
+```powershell
+npm run routes:generate
+npm run typecheck
+npm run lint
+npm run build
+```
+
+Use `npm run dev` for the Vite server when you already have the required API environment. Starting through Aspire supplies the API connection for normal local development.
+
+The demo's product and visual design are replaceable. [frontend/DESIGN.md](frontend/DESIGN.md) explains how to extend the current design or adopt a new one. Semantic theme tokens live in `frontend/src/index.css`. The initial shadcn preset is `radix-nova`, recorded in `frontend/components.json`.
+
+Add shadcn components from `frontend` with the [official CLI](https://ui.shadcn.com/docs/cli). Inspect existing components before adding another. Use TanStack Router for routes and shareable URL state, and TanStack Query for server data. Keep API requests relative to `/api` so development and publish use the same client code.
+
+## Use the agent skills
+
+[AGENTS.md](AGENTS.md) directs agents to the repository's frontend workflow and Aspire guidance. The frontend workflow uses the upstream `frontend-design` skill for visual choices and the official `shadcn` skill for component work. It asks agents to inspect the running application with their available browser tools after substantial UI changes.
+
+TanStack Intent discovers skills in installed npm packages. From `frontend`, list the available skills, then load a relevant identifier from the output:
+
+```powershell
+npx @tanstack/intent list
+npx @tanstack/intent load "<package>#<skill>"
+```
+
+The scripts `npm run skills:list` and `npm run skills:load -- "<package>#<skill>"` provide the same operations. Run `npm ci` before discovery. Do not assume that every TanStack package ships skills; when no matching skill is listed, use the official documentation for that library and installed version.
+
+For example, ask an agent to "Build a restaurant booking interface with a new visual direction" or "Add a page that matches the current application." The workflow treats those as different design tasks. It does not require future applications to resemble Workroom.
+
+See [SKILLS.md](SKILLS.md) for source records, licenses, and project-scoped update commands. Review upstream skill changes before updating the committed copies. Package-shipped TanStack skills change with npm dependencies. See the [shadcn skill guide](https://ui.shadcn.com/docs/skills), [TanStack Intent consumer guide](https://tanstack.com/intent/latest/docs/getting-started/quick-start-consumers), and [Anthropic frontend-design source](https://github.com/anthropics/skills/tree/main/skills/frontend-design) for upstream guidance.
 
 ## Publish the application
 
@@ -36,7 +78,8 @@ The command builds the React frontend and copies its output to the server's publ
 ## Project layout
 
 ```text
-frontend/       React, TypeScript, and Vite
+.agents/skills/  Agent skills and frontend workflow
+frontend/       React, TypeScript, Vite, and client libraries
 test.AppHost/   Aspire development orchestration
 test.Server/    ASP.NET Core API and production web host
 ```
