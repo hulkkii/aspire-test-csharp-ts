@@ -40,9 +40,9 @@ function ProjectDetails({ project, refreshFailed }: { project: Project; refreshF
   return <div className="flex flex-col gap-8">
     <Button variant="ghost" asChild className="self-start"><Link to="/" search={{ q: "", status: "all" }}><ArrowLeft data-icon="inline-start" aria-hidden="true" />All projects</Link></Button>
     <div className="flex flex-col gap-4">
-      <Badge className="self-start" variant={project.status === 'active' ? 'default' : 'secondary'}>{statusLabels[project.status]}</Badge>
-      <h1 className="max-w-3xl text-4xl leading-tight font-semibold tracking-tight sm:text-5xl">{project.name}</h1>
-      <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{project.description}</p>
+      <Badge className="self-start" variant={project.status === 'active' ? 'active' : project.status === 'completed' ? 'secondary' : 'outline'}>{statusLabels[project.status]}</Badge>
+      <h1 className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">{project.name}</h1>
+      <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">{project.description}</p>
     </div>
     {refreshFailed && <Alert variant="destructive"><AlertTitle>Refresh failed</AlertTitle><AlertDescription>Showing the last loaded project. <button className="underline" onClick={() => void queryClient.invalidateQueries({ queryKey: projectQuery(project.id).queryKey })}>Try again</button></AlertDescription></Alert>}
     <div className="grid gap-8 border-t pt-8 md:grid-cols-[1fr_1.4fr]">
@@ -50,8 +50,8 @@ function ProjectDetails({ project, refreshFailed }: { project: Project; refreshF
         <div><dt className="mb-1 text-sm text-muted-foreground">Project owner</dt><dd className="font-medium">{project.owner}</dd></div>
         <div><dt className="mb-1 text-sm text-muted-foreground">Due date</dt><dd className="font-medium"><time dateTime={project.dueDate}>{formatDate(project.dueDate)}</time></dd></div>
       </dl>
-      <section aria-labelledby="update-heading" className="flex flex-col gap-6 rounded-xl border bg-card p-6 sm:p-8">
-        <div><h2 id="update-heading" className="mb-2 text-xl font-semibold">Keep everyone in the loop.</h2><p className="text-sm leading-relaxed text-muted-foreground">Update the status as this project moves forward.</p></div>
+      <section aria-labelledby="update-heading" className="flex flex-col gap-5 rounded-xl border bg-card p-5 sm:p-6">
+        <div><h2 id="update-heading" className="mb-2 text-xl font-semibold">Update status</h2><p className="text-sm leading-relaxed text-muted-foreground">Update the status as this project moves forward.</p></div>
         <form onSubmit={submit}>
           <FieldGroup>
             <Field data-disabled={mutation.isPending}>

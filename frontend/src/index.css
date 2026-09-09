@@ -6,6 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    --color-brand-header: var(--brand-header);
+    --color-brand-header-foreground: var(--brand-header-foreground);
     --font-heading: var(--font-sans);
     --font-sans: 'Geist Variable', sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
@@ -49,26 +51,28 @@
 }
 
 :root {
-    --background: oklch(0.98 0.004 250);
-    --foreground: oklch(0.145 0 0);
+    --brand-header: #555555;
+    --brand-header-foreground: #ffffff;
+    --background: #f5f5f5;
+    --foreground: #242729;
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card-foreground: #242729;
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.46 0.17 265);
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: #ffd43b;
+    --primary-foreground: #242729;
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.48 0.015 250);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --muted-foreground: #606060;
+    --accent: #fff5ce;
+    --accent-foreground: #594600;
     --destructive: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
-    --ring: oklch(0.46 0.17 265);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
+    --ring: #806300;
+    --chart-1: #806300;
+    --chart-2: #606060;
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
@@ -90,27 +94,27 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.78 0.1 265);
-    --primary-foreground: oklch(0.205 0 0);
+    --primary: #ffd43b;
+    --primary-foreground: #242729;
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
     --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --accent: #3b341d;
+    --accent-foreground: #ffe58a;
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
+    --ring: #ffd43b;
+    --chart-1: #ffd43b;
+    --chart-2: #bdbdbd;
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-primary: #ffd43b;
+    --sidebar-primary-foreground: #242729;
     --sidebar-accent: oklch(0.269 0 0);
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
@@ -139,6 +143,68 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Shared columns keep project details aligned with their list headings. */
+@layer components {
+  .workroom-header a:focus-visible {
+    outline-color: var(--primary);
+  }
+
+  .project-columns {
+    display: grid;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .project-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    position: relative;
+    padding-right: 3rem;
+  }
+
+  .project-row > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .project-row > :nth-child(3) {
+    grid-column: 2;
+  }
+
+  .project-row > :nth-child(4) {
+    grid-column: 1 / -1;
+  }
+
+  .project-chevron {
+    position: absolute;
+    right: 1.25rem;
+    top: 1.5rem;
+  }
+
+  .project-row:focus-visible {
+    outline-offset: -2px;
+  }
+
+  @media (min-width: 64rem) {
+    .project-columns {
+      grid-template-columns: minmax(0, 1fr) 7rem 8rem 7rem 1rem;
+    }
+
+    .project-row {
+      min-height: 6rem;
+      padding-right: 1.25rem;
+    }
+
+    .project-row > :first-child,
+    .project-row > :nth-child(3),
+    .project-row > :nth-child(4) {
+      grid-column: auto;
+    }
+
+    .project-chevron {
+      position: static;
     }
   }
 }
