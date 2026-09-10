@@ -37,7 +37,7 @@ function ProjectsPage() {
       <p className="text-base text-muted-foreground">Your team's work, from first plans to the finish line.</p>
     </div>
     <WorkspaceOverview projects={query.data} />
-    <section aria-labelledby="projects-heading" className="overflow-hidden rounded-xl border bg-card">
+    <section aria-labelledby="projects-heading" className="overflow-hidden rounded-xl border bg-card text-card-foreground">
       <div className="flex flex-col gap-4 p-4 sm:p-5">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <form className="min-w-0 lg:flex-1 lg:max-w-2xl" onSubmit={(event) => { event.preventDefault(); void navigate({ search: { ...search, q: String(new FormData(event.currentTarget).get('q') ?? '') } }); }}>

@@ -50,7 +50,7 @@ function ProjectDetails({ project, refreshFailed }: { project: Project; refreshF
         <div><dt className="mb-1 text-sm text-muted-foreground">Project owner</dt><dd className="font-medium">{project.owner}</dd></div>
         <div><dt className="mb-1 text-sm text-muted-foreground">Due date</dt><dd className="font-medium"><time dateTime={project.dueDate}>{formatDate(project.dueDate)}</time></dd></div>
       </dl>
-      <section aria-labelledby="update-heading" className="flex flex-col gap-5 rounded-xl border bg-card p-5 sm:p-6">
+      <section aria-labelledby="update-heading" className="flex flex-col gap-5 rounded-xl border bg-card p-5 text-card-foreground sm:p-6">
         <div><h2 id="update-heading" className="mb-2 text-xl font-semibold">Update status</h2><p className="text-sm leading-relaxed text-muted-foreground">Update the status as this project moves forward.</p></div>
         <form onSubmit={submit}>
           <FieldGroup>

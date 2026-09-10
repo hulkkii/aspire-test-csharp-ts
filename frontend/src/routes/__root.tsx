@@ -1,6 +1,7 @@
 import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router';
 import type { QueryClient } from '@tanstack/react-query';
 import { PanelsTopLeft } from 'lucide-react';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 import { RouteError, RouteMissing, RoutePending } from '@/components/route-feedback';
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -17,7 +18,10 @@ function AppShell() {
         <Link to="/" search={{ q: "", status: "all" }} className="flex items-center gap-2.5 rounded-sm text-lg font-semibold tracking-tight">
           <PanelsTopLeft className="size-6 text-primary" aria-hidden="true" /> Workroom
         </Link>
-        <nav aria-label="Main navigation"><Link to="/" search={{ q: "", status: "all" }} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-header-foreground/10 aria-[current=page]:text-primary" activeProps={{ 'aria-current': 'page' }}>Projects</Link></nav>
+        <div className="flex items-center gap-2">
+          <nav aria-label="Main navigation"><Link to="/" search={{ q: "", status: "all" }} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-header-foreground/10 aria-[current=page]:text-primary" activeProps={{ 'aria-current': 'page' }}>Projects</Link></nav>
+          <ThemeSwitcher />
+        </div>
       </div>
     </header>
     <main id="main" tabIndex={-1} className="mx-auto max-w-6xl px-5 pt-8 pb-4 outline-none sm:px-8 sm:pt-10">
