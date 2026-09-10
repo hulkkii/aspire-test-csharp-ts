@@ -6,8 +6,6 @@ license: Complete terms in LICENSE.txt
 
 # Frontend Design
 
-Locally adapted from anthropics/skills on 2026-09-10: proportional planning, application hierarchy, instruction ownership, and defaults for unspecified visual direction. See [skill provenance](../../../SKILLS.md).
-
 Make deliberate choices about palette, typography, and layout that fit the brief. Preserve the visual language when extending an existing design; establish a distinct identity when a new direction is requested. Take aesthetic risks when they serve the product and audience.
 
 ## Ground your designs in the subject matter

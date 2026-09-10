@@ -29,5 +29,3 @@ Exercise input, submission, immediate feedback, related views, and reload where 
 ## Maintain the decisions
 
 Record consequential adopted choices in `frontend/DESIGN.md` with scope, rationale, implementation or evidence, and exceptions. Existing code shows what is implemented; it does not automatically establish the right pattern for another product. Keep unresolved choices labeled as assumptions and avoid turning one review comment into a universal rule.
-
-Repository-authored guidance informed by [Vercel's product-design article](https://vercel.com/blog/teaching-agents-product-design-at-vercel). Adapted for this template's replaceable products and existing library skills.

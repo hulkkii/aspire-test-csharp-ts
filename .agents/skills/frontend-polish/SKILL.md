@@ -23,7 +23,3 @@ Keep intentional brand characteristics. Do not add decoration, animation, new fe
 Compare before and after at relevant desktop and narrow widths. Exercise affected controls and user journeys using the workflow's checks. Preserve keyboard access, accessible names, and data behavior. Run checks warranted by the changes, fix observed regressions, and stop after confirming the corrections.
 
 Summarize the meaningful refinements and what was verified. If browser inspection was unavailable, state what remains visually unverified rather than claiming a successful build proves the design.
-
-## Sources
-
-Repository-authored guidance informed by Impeccable's [polish command](https://impeccable.style/docs/polish/). See [provenance](../../../SKILLS.md).

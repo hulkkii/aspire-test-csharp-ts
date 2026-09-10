@@ -27,7 +27,3 @@ Make the smallest coherent change using existing components and tokens. Remove n
 Compare before and after against the primary and secondary tasks. Confirm that required information and every affected action remain available, including options moved behind disclosure. Check relevant desktop and narrow views, keyboard access, and the affected user journey through the workflow. Fix observed regressions and stop after verification.
 
 Summarize what was removed, regrouped, or moved and why that helps. Report any behavior or visual result that could not be verified.
-
-## Sources
-
-Repository-authored guidance informed by Impeccable's [distill command](https://impeccable.style/docs/distill/). See [provenance](../../../SKILLS.md).

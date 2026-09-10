@@ -32,7 +32,3 @@ For each candidate, ask what it communicates and whether removing or changing it
 Lead with the most consequential findings. For each, give the page or element, screenshot or source evidence, its effect on the task, and a concrete improvement. Separate usability defects from aesthetic suggestions; include strengths worth preserving when useful. State the reviewed scope and verification limits. No finding quota, invented score, or probability of AI authorship is required.
 
 This is an agent review, not a deterministic detector run. Claim detector results only if a detector was actually run at the user's request, and identify its target and limitations. A clean review does not establish accessibility compliance or prove human authorship.
-
-## Sources
-
-Repository-authored guidance informed by Impeccable's [slop catalog](https://impeccable.style/slop/), [critique](https://impeccable.style/docs/critique/), and [detector documentation](https://impeccable.style/docs/detector/). See [provenance](../../../SKILLS.md).

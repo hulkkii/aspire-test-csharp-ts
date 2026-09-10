@@ -53,7 +53,7 @@ From the repository root, update only the selected project skills:
 npx skills update frontend-design shadcn --project
 ```
 
-Review the changed skill files and `skills-lock.json` before committing. Updates and reinstalls can overwrite the local frontend-design adaptation; review and reapply the changes described below, including its modification notice. Preserve license files and refresh the shadcn license from the reviewed upstream revision if necessary. A skill update may change behavior even when application dependencies are unchanged.
+Review the changed skill files and `skills-lock.json` before committing. Updates and reinstalls can overwrite the local frontend-design adaptation; review and reapply the changes described below. Preserve its separate [modification notice](.agents/skills/frontend-design/NOTICE.md) and license files, and refresh the shadcn license from the reviewed upstream revision if necessary. A skill update may change behavior even when application dependencies are unchanged.
 
 To reinstall the selected upstream skills at project scope, run these commands from the repository root:
 
