@@ -15,6 +15,36 @@ The shadcn license copy comes from [upstream revision 3ba91b1](https://github.co
 
 TanStack skills are discovered from installed packages through `@tanstack/intent`. Their versions follow [frontend/package-lock.json](frontend/package-lock.json), and their licenses remain with those packages. Run `npx @tanstack/intent list` from `frontend` to see what is actually available. Use official library documentation when no matching skill ships with the installed package.
 
+## Optional frontend tools
+
+These repository-authored skills are informed by Paul Bakaus's [Impeccable](https://github.com/pbakaus/impeccable), reviewed on 2026-09-10. They use original local instructions based on the linked public guidance, rather than vendored upstream skill files, and have no installer entry in `skills-lock.json`.
+
+| Skill | Purpose | Source guidance |
+| --- | --- | --- |
+| [frontend-slop-check](.agents/skills/frontend-slop-check/SKILL.md) | Report evidence-backed visual and usability findings; no edits by default | [Slop catalog](https://impeccable.style/slop/), [critique](https://impeccable.style/docs/critique/), [detector](https://impeccable.style/docs/detector/) |
+| [frontend-polish](.agents/skills/frontend-polish/SKILL.md) | Refine existing details while preserving the design | [Polish](https://impeccable.style/docs/polish/) |
+| [frontend-simplify](.agents/skills/frontend-simplify/SKILL.md) | Reduce clutter while preserving functionality | [Distill](https://impeccable.style/docs/distill/) |
+
+These three tools use host configuration to prevent automatic invocation:
+
+| Host | Invocation control | Discovery and usage |
+| --- | --- | --- |
+| Codex | `policy.allow_implicit_invocation: false` in `agents/openai.yaml` | Canonical `.agents/skills` folders; invoke with `$frontend-polish`, for example |
+| Claude Code | `disable-model-invocation: true` in `SKILL.md` frontmatter | Thin `.claude/skills` entrypoints load the canonical instructions; invoke with `/frontend-polish` |
+| GitHub Copilot in VS Code and Copilot CLI | `disable-model-invocation: true` in `SKILL.md` frontmatter | Supports `.agents/skills`; invoke with `/frontend-polish` |
+
+Manual invocation remains enabled by default. The normal frontend workflow does not load these tools automatically. Keep invocation metadata consistent in the canonical skills and Claude entrypoints; edit workflow instructions only in `.agents/skills`. Copilot can also discover `.claude/skills`, so both locations use the same names, explicit-only policy, and canonical workflow.
+
+See the official [Claude Code skills reference](https://code.claude.com/docs/en/skills), [VS Code skill controls](https://code.visualstudio.com/docs/agent-customization/agent-skills), and [Copilot CLI skills reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference). The Copilot policy above is documented for VS Code and CLI; do not assume identical invocation controls in every Copilot host or older version.
+
+```text
+$frontend-slop-check Review the dashboard. Report only.
+$frontend-polish Refine the settings page, keeping its current theme.
+$frontend-simplify Reduce clutter in the project detail view.
+```
+
+These skills use the agent's existing browser tools. They do not install Impeccable, its detector, hooks, or a browser test framework. A slop check is an agent review, not an automated detector scan. Maintain these local instructions directly and review source guidance selectively when updating them.
+
 ## Update the committed skills
 
 From the repository root, update only the selected project skills:
