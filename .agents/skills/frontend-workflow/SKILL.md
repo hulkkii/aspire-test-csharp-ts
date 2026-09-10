@@ -9,6 +9,8 @@ This skill owns task scope, execution sequence, project integration, storage dec
 
 ## Establish the task
 
+When the user explicitly invokes `frontend-prototype`, use that skill's experiment scope and completion checks. Keep project integration and applicable library guidance, but defer production validation, persistence, backend implementation, and exhaustive state coverage unless they are the subject of the experiment. Do not load the prototype skill automatically or treat its output as production-ready.
+
 Read `frontend/DESIGN.md`, `frontend/components.json`, and the relevant routes, components, and styles. Use the user's brief to distinguish an extension from a new design direction.
 
 Use the implementation map in `frontend/DESIGN.md` to find shared primitives and representative screens. Preserve the adopted typography, tokens, and control conventions when extending a design, while composing each page around its own task. Shared branding does not require identical page layouts or density; the demo's screen arrangements are examples, not mandatory templates.

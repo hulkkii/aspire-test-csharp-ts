@@ -17,15 +17,16 @@ TanStack skills are discovered from installed packages through `@tanstack/intent
 
 ## Optional frontend tools
 
-These repository-authored skills are informed by Paul Bakaus's [Impeccable](https://github.com/pbakaus/impeccable), reviewed on 2026-09-10. They use original local instructions based on the linked public guidance, rather than vendored upstream skill files, and have no installer entry in `skills-lock.json`.
+The review and refinement skills are informed by Paul Bakaus's [Impeccable](https://github.com/pbakaus/impeccable). The prototype skill is informed by Matt Pocock's [prototype workflow](https://github.com/mattpocock/skills/tree/main/skills/engineering/prototype). These sources were reviewed on 2026-09-10. The skills use repository-authored instructions based on the linked public guidance, rather than vendored upstream skill files, and have no installer entry in `skills-lock.json`.
 
 | Skill | Purpose | Source guidance |
 | --- | --- | --- |
 | [frontend-slop-check](.agents/skills/frontend-slop-check/SKILL.md) | Report evidence-backed visual and usability findings; no edits by default | [Slop catalog](https://impeccable.style/slop/), [critique](https://impeccable.style/docs/critique/), [detector](https://impeccable.style/docs/detector/) |
 | [frontend-polish](.agents/skills/frontend-polish/SKILL.md) | Refine existing details while preserving the design | [Polish](https://impeccable.style/docs/polish/) |
 | [frontend-simplify](.agents/skills/frontend-simplify/SKILL.md) | Reduce clutter while preserving functionality | [Distill](https://impeccable.style/docs/distill/) |
+| [frontend-prototype](.agents/skills/frontend-prototype/SKILL.md) | Explore designs with fixtures and simulated interactions before production implementation | [Prototype](https://github.com/mattpocock/skills/tree/main/skills/engineering/prototype), [UI exploration](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/UI.md) |
 
-These three tools use host configuration to prevent automatic invocation:
+These four tools use host configuration to prevent automatic invocation:
 
 | Host | Invocation control | Discovery and usage |
 | --- | --- | --- |
@@ -41,6 +42,7 @@ See the official [Claude Code skills reference](https://code.claude.com/docs/en/
 $frontend-slop-check Review the dashboard. Report only.
 $frontend-polish Refine the settings page, keeping its current theme.
 $frontend-simplify Reduce clutter in the project detail view.
+$frontend-prototype Explore three booking-app designs with sample data. You decide the directions.
 ```
 
 These skills use the agent's existing browser tools. They do not install Impeccable, its detector, hooks, or a browser test framework. A slop check is an agent review, not an automated detector scan. Maintain these local instructions directly and review source guidance selectively when updating them.
