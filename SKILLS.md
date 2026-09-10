@@ -1,12 +1,12 @@
 # Agent skill sources
 
-The repository commits its frontend skill copies so a new checkout has the same instructions. [skills-lock.json](skills-lock.json) records the upstream source, skill path, and computed hash for each installed upstream skill. These hashes identify the installer snapshot; they are not Git commit identifiers.
+The repository commits its frontend skill copies so a new checkout has the same instructions. [skills-lock.json](skills-lock.json) records the upstream source, skill path, and computed hash for each installed upstream skill. These hashes identify the upstream installer snapshot; they are not Git commit identifiers and do not describe subsequent local adaptations. Repository history records the reviewed local versions.
 
 ## Included guidance
 
 | Skill | Source | Role | License |
 | --- | --- | --- | --- |
-| [frontend-design](.agents/skills/frontend-design/SKILL.md) | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | Visual direction, typography, and critique | [Apache-2.0](.agents/skills/frontend-design/LICENSE.txt) |
+| [frontend-design](.agents/skills/frontend-design/SKILL.md) | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | Locally adapted visual direction, typography, and critique | [Apache-2.0](.agents/skills/frontend-design/LICENSE.txt) |
 | [shadcn](.agents/skills/shadcn/SKILL.md) | [shadcn/ui](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Component usage, composition, and CLI guidance | [MIT](.agents/skills/shadcn/LICENSE.md) |
 | [frontend-workflow](.agents/skills/frontend-workflow/SKILL.md) | This repository | Connects the stack, design context, and browser review | Repository-owned instructions |
 | [aspire](.agents/skills/aspire/SKILL.md) and [aspireify](.agents/skills/aspireify/SKILL.md) | Existing repository skills | Aspire operation and initialization | Retained from the original template |
@@ -23,7 +23,7 @@ From the repository root, update only the selected project skills:
 npx skills update frontend-design shadcn --project
 ```
 
-Review the changed skill files and `skills-lock.json` before committing. Preserve license files and refresh the shadcn license from the reviewed upstream revision if necessary. A skill update may change behavior even when application dependencies are unchanged.
+Review the changed skill files and `skills-lock.json` before committing. Updates and reinstalls can overwrite the local frontend-design adaptation; review and reapply the changes described below, including its modification notice. Preserve license files and refresh the shadcn license from the reviewed upstream revision if necessary. A skill update may change behavior even when application dependencies are unchanged.
 
 To reinstall the selected upstream skills at project scope, run these commands from the repository root:
 
@@ -36,6 +36,8 @@ These commands fetch the current upstream content. Use the committed files and r
 
 ## Design scope
 
-The upstream copies remain unchanged. The local workflow applies them to this template and the user's brief. The default `@shadcn` registry is already selected, and an authorized new visual direction can change the demo theme or preset without a repeated confirmation step.
+The shadcn copy remains unchanged. The frontend-design copy is locally adapted to use proportional planning, distinguish application screens from marketing pages, avoid routine brief confirmation, and defer integration and component rules to the relevant skills. Preserve these changes when updating upstream content. The local workflow applies the guidance to this template and the user's brief. The default `@shadcn` registry is already selected, and an authorized new visual direction can change the demo theme or preset without a repeated confirmation step.
+
+The local design adaptation also sets defaults for new designs without visual guidance: no dominant purple or violet, product-specific color choices, restrained decorative effects, and hierarchy beyond repeated cards. User requests, supplied references, and established branding take precedence. The purple restriction was informed by the [community-hosted v0 prompt](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/v0%20Prompts%20and%20Tools/Prompt.txt); the local guidance does not adopt its fixed color counts or framework-specific rules. Preserve these defaults when updating the skill.
 
 Anthropic's design skill is the default aesthetic guidance. Impeccable and prototype exploration are optional alternatives rather than additional mandatory workflows. The template uses the browser tools provided by the agent environment for visual review and does not install a browser test framework for that purpose.

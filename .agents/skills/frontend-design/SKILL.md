@@ -6,15 +6,23 @@ license: Complete terms in LICENSE.txt
 
 # Frontend Design
 
-Approach this as the design lead at a design studio known for giving every client a distinct visual identity that is not mistaken for anyone else's. This client has already rejected proposals that felt cliché or templated, and is paying for a distinctive point of view: make deliberate, opinionated choices about palette, typography, and layout that are specific to this brief, and take aesthetic risk if justified.
+Locally adapted from anthropics/skills on 2026-09-10: proportional planning, application hierarchy, instruction ownership, and defaults for unspecified visual direction. See [skill provenance](../../../SKILLS.md).
+
+Make deliberate choices about palette, typography, and layout that fit the brief. Preserve the visual language when extending an existing design; establish a distinct identity when a new direction is requested. Take aesthetic risks when they serve the product and audience.
 
 ## Ground your designs in the subject matter
 
-If the brief does not identify what the product or subject matter is, identify it yourself before designing, and confirm with the client. You can come up with one concrete subject, the design's audience, and the design's primary job, as a proposal. If there's any information in your memory about the client's preferences or context about what they're building, use that as a hint. The subject's industry, subject matter, materials, and vernacular are where distinctive visual choices come from — a design for a toy for girls aged 8–11 will be very aesthetically different from a dashboard for financial analysts. Build with the brief's real content and subject matter throughout.
+Identify the product, audience, and primary task from the brief and existing conversation. If details are missing, use reasonable assumptions and state those that materially affect the result. Ask only when missing information prevents useful progress. Draw visual choices from the subject matter and use realistic content throughout.
 
 ## Design principles
 
-For web designs, the hero is the first thing viewers will see. Open with the most characteristic thing in the subject's world, in the form that is most appropriate: a headline, an image, an animation, a live demo, an interactive moment, or other treatments. Be deliberate with your choice: a big number with a small label, supporting stats, and a gradient accent is the default treatment, so only use it if that's truly the best option.
+For a new design without explicit color guidance, do not use purple or violet as the dominant color or primary accent. User requests, supplied visual references, and established branding take precedence. Preserve the palette when extending an existing design.
+
+Choose colors from the product's context and audience. Do not replace purple with another universal fallback palette. Prefer solid backgrounds; avoid decorative gradient washes, glowing accents, and gradient text unless the brief supports them.
+
+Establish hierarchy through typography, spacing, alignment, and contrast. Avoid wrapping every section in an identical rounded card; group content according to its relationships and purpose.
+
+For application screens, lead with the primary task: the relevant data, controls, and next action. Match hierarchy and density to how people use the screen; a dashboard or editor does not need a hero. For marketing pages, an opening headline, image, demo, or other hero treatment can establish the subject and value. Choose the opening composition to serve the page rather than applying the same treatment everywhere.
 
 Typography carries the personality of the page. You don't need a different typeface for display or headline text and body content: use one family or two, and if two, make them clearly distinct.
 
@@ -44,17 +52,15 @@ For calibration, AI-generated design right now clusters around some traits:
 
 All traits are legitimate for some briefs, but they are defaults rather than choices, and they appear regardless of subject. Where the brief pins down a visual direction, follow it exactly — the brief's own words always win, including when it asks for one of these looks. Where it leaves an axis free, don't spend that freedom on one of these defaults. As with a hired human designer, there's often a careful balance between doing what you're good at and taking each project as a chance to experiment and learn.
 
-Work in two passes. First, brainstorm a short design plan based on the client's design brief: create a compact token system with color, type, layout, and principles.
-- Color: describe the core base palette as 4–6 named hex values.
-- Type: the typefaces and their roles.
-- Layout: a layout concept, using one-sentence prose descriptions and ASCII wireframes to ideate and compare. Include alignment guidance; should the content be left aligned, center aligned, justified?
-- Principles: the high-level guidance for what makes this page unique.
+Scale planning to the task. For a straightforward application or an extension, use a brief internal plan covering the primary task, hierarchy, and any visual choices that need to change, then build. Reuse established tokens and typography where appropriate.
 
-Then review that plan against the brief before building: if any part of it reads like the generic default you would produce for any similar page (work through a similar prompt to see if you arrive somewhere similar) rather than a choice made for this specific brief — revise that part, say what you changed and why. Only after you've confirmed the relative uniqueness of your design plan should you start to write the code, following the revised plan.
+For a substantial new visual direction, define enough of the palette, typography, layout, and imagery to make the result coherent. Compare alternatives when requested or when they resolve a meaningful design uncertainty. Fixed palette counts, ASCII wireframes, and a formal uniqueness review are not required. Check that choices fit the brief; novelty is not a prerequisite for implementation.
 
-When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections.
+Use the repository's frontend workflow for project integration, storage decisions, and completion checks. Use the relevant library skill for component APIs, composition, styling conventions, and accessible interaction behavior. This skill owns visual direction and critique.
 
 ## Restraint and self-critique
+
+During visual review, check whether the layout and content fit this particular product. Changing the accent color alone does not make a design distinctive. Apply this check within the existing review, without adding a separate planning or approval step.
 
 Spend your boldness in one place. Let one element be the memorable thing, keep everything around it quiet and disciplined, and cut any decoration that does not serve the brief. Build to a quality floor without announcing it: responsive down to mobile, visible keyboard focus, reduced motion respected, visually accessible, harmonious color palettes. Critique your own work as you build, taking screenshots to review if your environment supports it — a picture is worth 1000 tokens. Consider Chanel's advice: before leaving the house, take a look in the mirror and remove one accessory. Human creatives have memory and always try to do something new, so if you have a space to quickly jot down notes about what you've tried, it can help you in future passes.
 
