@@ -66,6 +66,10 @@ These commands fetch the current upstream content. Use the committed files and r
 
 ## Design scope
 
+The frontend workflow routes form, mutation, dialog, and destructive-action work to [interaction decisions](.agents/skills/frontend-workflow/references/interactions.md). This repository-authored reference and the decision-recording guidance in `frontend/DESIGN.md` are informed by [Vercel's product-design article](https://vercel.com/blog/teaching-agents-product-design-at-vercel), reviewed on 2026-09-10. Product-specific decisions remain replaceable; component APIs stay with the library skills.
+
+`npm run lint` includes the recommended `eslint-plugin-jsx-a11y` rules for TSX. Only components with stable native semantics are mapped explicitly. Static linting does not establish accessible names or behavior for every Radix composition, and does not replace rendered browser and keyboard checks. See the [plugin documentation](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
+
 The shadcn copy remains unchanged. The frontend-design copy is locally adapted to use proportional planning, distinguish application screens from marketing pages, avoid routine brief confirmation, and defer integration and component rules to the relevant skills. Preserve these changes when updating upstream content. The local workflow applies the guidance to this template and the user's brief. The default `@shadcn` registry is already selected, and an authorized new visual direction can change the demo theme or preset without a repeated confirmation step.
 
 The local design adaptation also sets defaults for new designs without visual guidance: no dominant purple or violet, product-specific color choices, restrained decorative effects, and hierarchy beyond repeated cards. User requests, supplied references, and established branding take precedence. The purple restriction was informed by the [community-hosted v0 prompt](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/v0%20Prompts%20and%20Tools/Prompt.txt); the local guidance does not adopt its fixed color counts or framework-specific rules. Preserve these defaults when updating the skill.

@@ -11,6 +11,8 @@ This skill owns task scope, execution sequence, project integration, storage dec
 
 Read `frontend/DESIGN.md`, `frontend/components.json`, and the relevant routes, components, and styles. Use the user's brief to distinguish an extension from a new design direction.
 
+Use the implementation map in `frontend/DESIGN.md` to find shared primitives and representative screens. Preserve the adopted typography, tokens, and control conventions when extending a design, while composing each page around its own task. Shared branding does not require identical page layouts or density; the demo's screen arrangements are examples, not mandatory templates.
+
 For an extension, preserve the current visual language and reuse its components. For a new direction, choose the product, hierarchy, layout, typography, colors, density, and imagery that fit the brief. The Workroom demo and its shadcn preset are starting examples, not requirements for future applications. Update `frontend/DESIGN.md` when adopting a new direction.
 
 Use the available `frontend-design` skill for visual direction. State material assumptions and proceed when the brief is sufficient. Existing conversation context and the user's requested product or design count as the brief; do not ask them to reconfirm it. Do not add a routine approval checkpoint before implementation. Explore alternatives only when the request or an unresolved design choice warrants them.
@@ -59,6 +61,8 @@ npx @tanstack/intent load "<package>#<skill>"
 Replace the placeholder with a relevant identifier from the list. Load only the skills needed for the change and follow their references. Package names do not guarantee skill availability. Use the [official Query docs](https://tanstack.com/query/latest/docs/framework/react/overview) or [Router docs](https://tanstack.com/router/latest/docs/framework/react/overview) when the installed package has no matching skill. Check advice against the installed version.
 
 ## Implement in the existing application
+
+For forms, mutations, dialogs, or destructive actions, read [interaction decisions](references/interactions.md). Use it for product behavior and recovery choices; keep component APIs and composition with the relevant library skill. Record consequential adopted decisions and their rationale in `frontend/DESIGN.md` without making a separate planning document for routine edits.
 
 Use TanStack Router for routes and shareable URL state. Use TanStack Query for server data and mutation cache updates. Keep transient control state local to React. Reuse existing query definitions so route preloading and rendered views address the same cache entries. Generate the route tree with the project command instead of editing generated output.
 
