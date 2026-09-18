@@ -9,8 +9,6 @@ This skill owns task scope, execution sequence, project integration, storage dec
 
 ## Establish the task
 
-When the user explicitly invokes `frontend-prototype`, use that skill's experiment scope and completion checks. Keep project integration and applicable library guidance, but defer production validation, persistence, backend implementation, and exhaustive state coverage unless they are the subject of the experiment. Do not load the prototype skill automatically or treat its output as production-ready.
-
 Read `frontend/DESIGN.md`, `frontend/components.json`, and the relevant routes, components, and styles. Use the user's brief to distinguish an extension from a new design direction.
 
 Use the implementation map in `frontend/DESIGN.md` to find shared primitives and representative screens. Preserve the adopted typography, tokens, and control conventions when extending a design, while composing each page around its own task. Shared branding does not require identical page layouts or density; the demo's screen arrangements are examples, not mandatory templates.
@@ -53,7 +51,7 @@ Use the installed `shadcn` skill for component selection, composition, and CLI o
 
 Keep Tailwind 4 tokens in the configured CSS file; derive component colors from semantic tokens. For a new theme, change tokens and component variants at their source instead of scattering per-instance overrides. The chosen preset may change with the brief. Review foreground and background token pairs together across the affected themes, including muted text, inputs, overlays, charts, and focus states. A primary-color change alone does not establish a complete new theme.
 
-Before routing, search-parameter, query, or mutation work, run these commands from `frontend`:
+Before routing, search-parameter, query, or mutation work, run these commands from `frontend` after `npm ci`. Use the locally installed Intent version, without `@latest`; unrelated tasks do not require discovery:
 
 ```powershell
 npx @tanstack/intent list

@@ -9,9 +9,9 @@ The repository commits its frontend skill copies so a new checkout has the same 
 | [frontend-design](.agents/skills/frontend-design/SKILL.md) | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | Locally adapted visual direction, typography, and critique | [Apache-2.0](.agents/skills/frontend-design/LICENSE.txt) |
 | [shadcn](.agents/skills/shadcn/SKILL.md) | [shadcn/ui](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Component usage, composition, and CLI guidance | [MIT](.agents/skills/shadcn/LICENSE.md) |
 | [frontend-workflow](.agents/skills/frontend-workflow/SKILL.md) | This repository | Connects the stack, design context, and browser review | Repository-owned instructions |
-| [aspire](.agents/skills/aspire/SKILL.md) and [aspireify](.agents/skills/aspireify/SKILL.md) | Existing repository skills | Aspire operation and initialization | Retained from the original template |
+| [aspire](.agents/skills/aspire/SKILL.md) | Existing repository skill | Operate the wired AppHost | Retained from the original template |
 
-The shadcn license copy comes from [upstream revision 3ba91b1](https://github.com/shadcn-ui/ui/blob/3ba91b1cc83e1bbe4ab35a422ff2a694849c5048/LICENSE.md). Keep the upstream notices when redistributing the skills. The original Aspire skills predate this frontend setup and have no entry in `skills-lock.json`.
+The shadcn license copy comes from [upstream revision 3ba91b1](https://github.com/shadcn-ui/ui/blob/3ba91b1cc83e1bbe4ab35a422ff2a694849c5048/LICENSE.md). Keep the upstream notices when redistributing the skills. The Aspire skill predates this frontend setup and has no entry in `skills-lock.json`.
 
 TanStack skills are discovered from installed packages through `@tanstack/intent`. Their versions follow [frontend/package-lock.json](frontend/package-lock.json), and their licenses remain with those packages. Run `npx @tanstack/intent list` from `frontend` to see what is actually available. Use official library documentation when no matching skill ships with the installed package.
 

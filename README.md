@@ -29,7 +29,7 @@ The Aspire dashboard shows these application resources:
 - `server` runs the ASP.NET Core API.
 - `webfrontend` runs the Vite development server and proxies `/api` requests to `server`.
 
-Open the `webfrontend` endpoint shown by Aspire. The Workroom demo has a project list, URL-based filters, and project details. Changing a project's status exercises an API mutation and the Query cache. Demo data lives in memory and resets when the API restarts. The existing weather API remains available.
+Open the `webfrontend` endpoint shown by Aspire. The Workroom demo has a project list, URL-based filters, and project details. Changing a project's status exercises an API mutation and the Query cache. Demo data lives in memory and resets when the API restarts.
 
 ## Change the frontend
 
